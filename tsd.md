@@ -21,7 +21,7 @@
 ## 3. Introduction
 - **Purpose**: To develop an Airline Booking System that allows customers to search flights, book tickets, select seats, and manage reservations, while giving admins tools to manage flights and view reports.
 - **Scope**: 
-  - Customer: flight search, booking, seat selection, payment, booking history.
+  - Customer: flight search, booking, seat selection, add-on option, payment, booking history.
   - Admin: flight management (CRUD), view bookings and reports.
   - Not included: advanced analytics, loyalty programs, or multi-currency payments.
 - **Definitions, Acronyms, and Abbreviations**: 
@@ -56,6 +56,7 @@
 - **Flight Search and Filters**: Users can search flights and filter it.
 - **Booking Flights**: Users can book flights.
 - **Seat Selection**: Users can choose which seat is still available.
+- **Add-on Options**: Users can add an extra luggage/baggage, in-flight meals, or priority boarding.
 - **View Booking History**: Users can view his/her booking history
 - **Admin Flight CRUD**: Admin can create, update, remove flights.
 - **Payment Gateway Integration**: Users can make payments securely using a payment gateway.
@@ -76,21 +77,23 @@
   - **Description**: Customers searches for flights with it's filters
   - **Actors**: End User / Customer
   - **Preconditions**: User logged in or a guest.
-  - **Postconditions**: Flight options displayed
-  - **Main Flow**: User selects origin, destination, and date > User clicks "Search Flights" > System displays available flights.
+  - **Postconditions**: Flight and cabin class option displayed
+  - **Main Flow**: User selects origin, destination, and date > select their preferred cabin class (Economy, Business, or First Class) > User clicks "Search Flights" > System displays available flights.
   - **Alternate Flows**:
     - No flights found > System shows "No flights available".
+    - Class Fully Booked > System prompts "Selected class is fully booked. Please choose another class."
     - Missing input > System prompts "Please fill in all required fields".
 
 - **Use Case 3**: Book Flight & Seat Selection
   - **Title**: Customers book and choose seats+
-  - **Description**: Customer's book a flight and choose if there is seats available
+  - **Description**: Customers book a flight, choose available seats, and add optional services such as extra luggage or in-flight meals.
   - **Actors**: End User / Customer
-  - **Preconditions**: Flight available, logged in.
-  - **Postconditions**: Booking stored, seat assigned.
-  - **Main Flow**: User selects flight > User chooses seats and enters passenger info > User proceeds to payment > System processes payment and confirms booking.
+  - **Preconditions**: Flight available, logged in, Seats are available for selected class
+  - **Postconditions**: Booking stored, seat assigned, Selected class recorded, Add-ons (if any) attached to booking, Payment confirmed
+  - **Main Flow**: User searches and selects a flight. > System displays "available cabin classes: Economy Class, Business Class, First Class" > User selects preferred class > System displays available seats based on selected class > User chooses seat(s) > User enters passenger information > User selects optional add-ons: Extra luggage/baggage, In-flight meal/food, Priority Boarding > System calculates total cost (base fare + class upgrade + add-ons) > User proceeds to payment > System processes payment > System confirms booking and displays booking reference
   - **Alternate Flows**: 
-    - Seat unavailable > System prompts "Selected seat is no longer available".
+    - Seat unavailable > System prompts "Selected seat is no longer available. Please choose another seat." > User selects a different seat
+    - Add-on Unavailable > System shows "Selected add-on (e.g., specific meal) is unavailable." > System prompts "select an alternative option."
     - Payment failure > System shows "Payment failed, try another method".
 
 - **Use Case 4**: Admin Manage Flights
@@ -137,8 +140,8 @@
 ## 9. Data Requirements
 - **Data Models**: 
   - **User**: { id, email, password_hash, role }
-  - **Flight**: { id, flight_number, origin, destination, date, time, seats_available, price }
-  - **Booking**: { id, user_id, flight_id, seat_number, status, payment_status }
+  - **Flight**: { id, flight_number, origin, destination, cabin_class, date, time, seats_available, price }
+  - **Booking**: { id, user_id, flight_id, seat_number, add-on, status, payment_status }
 - **Database Requirements**: 
   - Use MongoDB for storing user, product, and order data.
 - **Data Storage and Retrieval**: 
