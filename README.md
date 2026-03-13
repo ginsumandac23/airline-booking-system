@@ -50,7 +50,8 @@
 
 ## 5. Visual Mockup Reference
 - **[Figma Mockup Link](https://www.figma.com/design/NbuUZMCyzQKHjUYiQVGCMo/Airline-Booking-API-Figma-Mockup?node-id=0-1&t=gmI33aic2c4sez7Z-1)**:
-- [ERD Link](https://drive.google.com/file/d/12-4ihtaTY8cDM6gzE_melY7MLwKiJzcI/view)
+- **[ERD Link](https://drive.google.com/file/d/12-4ihtaTY8cDM6gzE_melY7MLwKiJzcI/view)**
+- **[Trello Board](https://trello.com/b/Fbu14oAi/airline-booking-system-board)**
 
 ## 6. Features
 - **User Registration and Login**: Users can create accounts and log in.
