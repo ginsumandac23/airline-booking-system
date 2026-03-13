@@ -49,7 +49,7 @@
   - Payment gateway API is available
 
 ## 5. Visual Mockup Reference
-- **Link or Screenshot**:
+- **[Figma Mockup Link](https://www.figma.com/design/NbuUZMCyzQKHjUYiQVGCMo/Airline-Booking-API-Figma-Mockup?node-id=0-1&t=gmI33aic2c4sez7Z-1)**:
 
 ## 6. Features
 - **User Registration and Login**: Users can create accounts and log in.
