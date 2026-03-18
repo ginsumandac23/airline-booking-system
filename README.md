@@ -5,10 +5,10 @@
 - **Version**: 1.0
 - **Date**: February 26, 2026
 - **Author(s)**:
-  Algine Sumandac
-  Mychaella Sawit
-  Paulo Espinosa
-  Mark Estrecho
+  Algine Sumandac,
+  Mychaella Sawit,
+  Paulo Espinosa,
+  Mark Estrecho,
   James Pilar
 
 ## 2. Table of Contents
