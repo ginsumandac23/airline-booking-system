@@ -4,7 +4,12 @@
 - **Project Name**: Airline Booking System
 - **Version**: 1.0
 - **Date**: February 26, 2026
-- **Author(s)**: (Bootcamp Group Names Here)
+- **Author(s)**:
+  Algine Sumandac
+  Mychaella Sawit
+  Paulo Espinosa
+  Mark Estrecho
+  James Pilar
 
 ## 2. Table of Contents
 1. [Introduction](#3-introduction)
