@@ -5,6 +5,10 @@
   --font-black: #475569;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
 	font-family: "Inter", sans-serif;
 	font-size: 15px;
@@ -178,4 +182,29 @@ footer .footer-top {
 
 .newsletter .newsletter-btn {
 	background: var(--btn-bg-color);
+}
+
+#back-to-top-btn {
+    background: var(--btn-bg-color);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
 }
