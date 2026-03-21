@@ -4,12 +4,7 @@
 - **Project Name**: Airline Booking System
 - **Version**: 1.0
 - **Date**: February 26, 2026
-- **Author(s)**:
-  Algine Sumandac,
-  Mychaella Sawit,
-  Paulo Espinosa,
-  Mark Estrecho,
-  James Pilar
+- **Author(s)**: Algine Sumandac, Mychaella Sawit, Paulo Espinosa, Mark Estrecho, James Pilar
 
 ## 2. Table of Contents
 1. [Introduction](#3-introduction)
@@ -54,9 +49,7 @@
   - Payment gateway API is available
 
 ## 5. Visual Mockup Reference
-- **[Figma Mockup Link](https://www.figma.com/design/NbuUZMCyzQKHjUYiQVGCMo/Airline-Booking-API-Figma-Mockup?node-id=0-1&t=gmI33aic2c4sez7Z-1)**:
-- **[ERD Link](https://drive.google.com/file/d/12-4ihtaTY8cDM6gzE_melY7MLwKiJzcI/view)**
-- **[Trello Board](https://trello.com/b/Fbu14oAi/airline-booking-system-board)**
+- **Link or Screenshot**:
 
 ## 6. Features
 - **User Registration and Login**: Users can create accounts and log in.
