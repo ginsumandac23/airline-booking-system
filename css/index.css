@@ -89,13 +89,13 @@ header .nav-link {
 }
 
 .banner-search-form .with-icon.icon-1{
-	background-image: url('./images/departure-from-icon.png');
+	background-image: url('../images/departure-from-icon.png');
 }
 .banner-search-form .with-icon.icon-2{
-	background-image: url('./images/departure-to-icon.png');
+	background-image: url('../images/departure-to-icon.png');
 }
 .banner-search-form .with-icon.icon-3{
-	background-image: url('./images/departure-date-icon.png');
+	background-image: url('../images/departure-date-icon.png');
 }
 .banner-search-form .with-icon.icon-4 {
   background-image: 
