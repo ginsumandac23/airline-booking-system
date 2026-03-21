@@ -99,7 +99,7 @@ header .nav-link {
 }
 .banner-search-form .with-icon.icon-4 {
   background-image: 
-    url('./images/cabin-class-icon.png'),
+    url('../images/cabin-class-icon.png'),
     var(--bs-form-select-bg-img);
   background-repeat: no-repeat, no-repeat;
   background-position:12px 70%, right 0.75rem center;
