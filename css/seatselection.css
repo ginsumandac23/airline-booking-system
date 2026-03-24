@@ -1,0 +1,423 @@
+/* ===========================
+   BOOKING PAGE STYLES
+   =========================== */
+
+.booking-header {
+  border-bottom: 1px solid #E2E8F0;
+  background: #fff;
+}
+
+.user-profile {
+  color: var(--font-black);
+  font-size: 15px;
+}
+
+.booking-main {
+  background: #F1F5F9;
+  min-height: calc(100vh - 72px);
+}
+
+/* ===========================
+   STEPPER
+   =========================== */
+.stepper-card {
+  border-radius: 12px !important;
+}
+
+.stepper {
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.step-circle.inactive {
+  background: #E2E8F0;
+  color: #94A3B8;
+}
+
+.step-label {
+  font-size: 12px;
+  color: var(--font-black);
+  white-space: nowrap;
+  font-family: "Poppins", sans-serif;
+}
+
+.step.active .step-circle {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.15);
+}
+
+.step.active .step-label {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #E2E8F0;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 0;
+}
+
+.step-line.completed-line {
+  background: var(--primary-color);
+}
+
+/* ===========================
+   CABIN TABS
+   =========================== */
+.seat-map-card {
+  border-radius: 12px !important;
+}
+
+.cabin-tabs {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 4px;
+  display: inline-flex;
+  background: #F8FAFC;
+}
+
+.cabin-tabs .nav-link {
+  color: var(--font-black);
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  transition: all 0.2s;
+}
+
+.cabin-tabs .nav-link.active {
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+}
+
+.cabin-tabs .nav-link:hover:not(.active) {
+  background: #E2E8F0;
+  color: var(--secondary-color);
+}
+
+/* ===========================
+   SEAT LEGEND
+   =========================== */
+.seat-legend {
+  font-size: 13px;
+  color: var(--font-black);
+}
+
+.legend-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.legend-box.available {
+  background: #F1F5F9;
+  border: 1.5px solid #CBD5E1;
+}
+
+.legend-box.occupied {
+  background: #CBD5E1;
+  border: 1.5px solid #94A3B8;
+}
+
+.legend-box.selected {
+  background: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+}
+
+/* ===========================
+   SEAT MAP
+   =========================== */
+.seat-map-wrapper {
+  overflow-x: auto;
+}
+
+.seat-map {
+  min-width: 340px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.cockpit-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0 6px;
+}
+
+.cockpit-icon {
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.cockpit-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #94A3B8;
+}
+
+.seat-columns-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  margin-bottom: 4px;
+}
+
+.col-label {
+  width: 34px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94A3B8;
+  font-family: "Poppins", sans-serif;
+}
+
+.col-spacer {
+  width: 20px;
+}
+
+.row-spacer {
+  width: 28px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94A3B8;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Seat Row */
+.seat-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}
+
+.seat-row-num {
+  width: 28px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94A3B8;
+  font-family: "Poppins", sans-serif;
+  flex-shrink: 0;
+}
+
+.aisle-gap {
+  width: 20px;
+  flex-shrink: 0;
+}
+
+/* Individual Seat */
+.seat {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px 6px 4px 4px;
+  border: 1.5px solid #CBD5E1;
+  background: #F1F5F9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #94A3B8;
+  transition: all 0.15s ease;
+  position: relative;
+  flex-shrink: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.seat::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background: #CBD5E1;
+  border-radius: 0 0 3px 3px;
+  transition: background 0.15s;
+}
+
+.seat:hover:not(.occupied):not(.selected) {
+  background: #DBEAFE;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.seat.occupied {
+  background: #CBD5E1;
+  border-color: #94A3B8;
+  cursor: not-allowed;
+  color: #fff;
+}
+
+.seat.occupied::after {
+  background: #94A3B8;
+}
+
+.seat.selected {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.35);
+}
+
+.seat.selected::after {
+  background: #1E3FAE;
+}
+
+/* First class & business seat styles */
+.seat.business-seat {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px 8px 5px 5px;
+  font-size: 11px;
+}
+
+.seat.first-seat {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px 10px 6px 6px;
+  font-size: 11px;
+}
+
+/* ===========================
+   BOOKING SUMMARY CARD
+   =========================== */
+.summary-card {
+  border-radius: 12px !important;
+}
+
+.flight-info-box {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.summary-label {
+  font-size: 11px;
+  color: #64748B;
+  letter-spacing: 0.5px;
+}
+
+.passenger-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+/* Add-ons */
+.addon-item {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  transition: border-color 0.2s;
+}
+
+.addon-item:hover {
+  border-color: #CBD5E1;
+}
+
+.addon-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+/* Price */
+.total-price {
+  color: var(--primary-color);
+}
+
+/* Proceed Button */
+.proceed-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  transition: all 0.2s;
+  border: none;
+}
+
+.proceed-btn:hover {
+  background: #1E3FAE;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.3);
+}
+
+/* ===========================
+   PAYMENT MODAL
+   =========================== */
+.payment-flight-badge {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.total-modal-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+}
+
+.booking-ref-box {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .stepper {
+    gap: 4px;
+  }
+  .step-label {
+    font-size: 10px;
+  }
+  .step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .cabin-tabs .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
