@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SkyBound | Book Flight - Seat Selection</title>
+
+	<!-- Google fonts for Poppins and Inter -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/seatselection.css">
+</head>
+<body>
+
+	
+	<header class="container-fluid">
+		<div class="container-xxl py-3">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container-fluid">
+					<a href="./index.html">
+						<img src="./images/logo.png" alt="Logo" />
+					</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<div class="navbar-nav ms-auto grid-4">
+							<a class="nav-link" href="#">Flights</a>
+							<a class="nav-link" href="#">My Bookings</a>
+							<a class="nav-link" href="#">About</a>
+							<a class="nav-link" href="#">Contact Us</a>
+							<a class="nav-link" href="#">Login/Register</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<!-- MAIN BOOKING CONTENT -->
+	<main class="booking-main py-4">
+		<div class="container-xxl">
+			<div class="row g-4">
+
+				<!-- LEFT: Stepper + Seat Map -->
+				<div class="col-lg-8">
+
+					<!-- Step Progress Bar -->
+					<div class="stepper-card card border-0 shadow-sm p-4 mb-4">
+						<div class="stepper d-flex align-items-center justify-content-between">
+
+							<div class="step completed">
+								<div class="step-circle">
+									<span>1</span>
+								</div>
+								<div class="step-label">Select Flight</div>
+							</div>
+							<div class="step-line completed-line"></div>
+
+							<div class="step active">
+								<div class="step-circle">
+									<span>2</span>
+								</div>
+								<div class="step-label fw-bold">Seat Selection</div>
+							</div>
+							<div class="step-line"></div>
+
+							<div class="step">
+								<div class="step-circle inactive">
+									<span>3</span>
+								</div>
+								<div class="step-label text-muted">Add-ons</div>
+							</div>
+							<div class="step-line"></div>
+
+							<div class="step">
+								<div class="step-circle inactive">
+									<span>4</span>
+								</div>
+								<div class="step-label text-muted">Payment</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Cabin Class Tabs + Seat Map -->
+					<div class="seat-map-card card border-0 shadow-sm p-4">
+
+						<!-- Cabin Tabs -->
+						<ul class="nav nav-pills cabin-tabs mb-4" id="cabinTabs">
+							<li class="nav-item">
+								<button class="nav-link active" id="tab-economy" onclick="switchCabin('economy')">Economy</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-business" onclick="switchCabin('business')">Business</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-first" onclick="switchCabin('first')">First Class</button>
+							</li>
+						</ul>
+
+						<!-- Legend -->
+						<div class="seat-legend d-flex align-items-center gap-4 mb-4">
+							<div class="legend-item d-flex align-items-center gap-2">
+								<div class="legend-box available"></div>
+								<span>Available</span>
+							</div>
+							<div class="legend-item d-flex align-items-center gap-2">
+								<div class="legend-box occupied"></div>
+								<span>Occupied</span>
+							</div>
+							<div class="legend-item d-flex align-items-center gap-2">
+								<div class="legend-box selected"></div>
+								<span>Selected</span>
+							</div>
+						</div>
+
+						<!-- Seat Map Container -->
+						<div class="seat-map-wrapper">
+							<div class="seat-map" id="seatMap">
+								<!-- Cockpit -->
+								<div class="cockpit-area text-center mb-3">
+									<div class="cockpit-icon">
+										<i class="bi bi-airplane fs-3"></i>
+									</div>
+									<div class="cockpit-label text-muted small text-uppercase letter-spacing-1">Cockpit</div>
+								</div>
+
+								<!-- Column Letters Header -->
+								<div class="seat-columns-header d-flex justify-content-center mb-1" id="columnHeader">
+									<!-- Dynamically rendered -->
+								</div>
+
+								<!-- Seat Rows -->
+								<div id="seatRows">
+									<!-- Dynamically rendered -->
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- RIGHT: Booking Summary -->
+				<div class="col-lg-4">
+					<div class="summary-card card border-0 shadow-sm p-4 sticky-top" style="top: 20px;">
+						<h5 class="fw-bold mb-3">Booking Summary</h5>
+
+						<!-- Flight Info -->
+						<div class="flight-info-box p-3 rounded mb-3">
+							<div class="d-flex align-items-center gap-2 mb-2">
+								<i class="bi bi-airplane text-primary fs-6"></i>
+								<span class="fw-bold text-uppercase text-primary small letter-spacing-1">FLIGHT SH422</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-between">
+								<div>
+									<div class="fw-bold fs-5">SFO</div>
+									<div class="text-muted small">San Francisco</div>
+								</div>
+								<div class="text-center px-2">
+									<i class="bi bi-arrow-right text-muted"></i>
+								</div>
+								<div class="text-end">
+									<div class="fw-bold fs-5">LHR</div>
+									<div class="text-muted small">London Heathrow</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Passenger Name -->
+						<div class="mb-3">
+							<label class="summary-label text-uppercase fw-semibold small mb-1">Passenger Name</label>
+							<div class="d-flex align-items-center gap-2 passenger-box p-2 rounded">
+								<i class="bi bi-person text-muted"></i>
+								<span>John Doe</span>
+							</div>
+						</div>
+
+						<!-- Add-ons -->
+						<div class="mb-3">
+							<label class="summary-label text-uppercase fw-semibold small mb-2">Add-ons</label>
+
+							<div class="addon-item d-flex align-items-center justify-content-between p-2 rounded mb-2" id="addon-luggage">
+								<div class="d-flex align-items-center gap-2">
+									<i class="bi bi-luggage text-primary"></i>
+									<span class="small">Extra Luggage</span>
+								</div>
+								<input class="form-check-input addon-checkbox" type="checkbox" id="check-luggage" checked onchange="updateAddons()">
+							</div>
+
+							<div class="addon-item d-flex align-items-center justify-content-between p-2 rounded mb-2" id="addon-meal">
+								<div class="d-flex align-items-center gap-2">
+									<i class="bi bi-cup-hot-fill text-primary"></i>
+									<span class="small">In-flight Meal</span>
+								</div>
+								<input class="form-check-input addon-checkbox" type="checkbox" id="check-meal" onchange="updateAddons()">
+							</div>
+
+							<div class="addon-item d-flex align-items-center justify-content-between p-2 rounded mb-2" id="addon-boarding">
+								<div class="d-flex align-items-center gap-2">
+									<i class="bi bi-lightning text-primary"></i>
+									<span class="small">Priority Boarding</span>
+								</div>
+								<input class="form-check-input addon-checkbox" type="checkbox" id="check-boarding" onchange="updateAddons()">
+							</div>
+						</div>
+
+						<hr class="my-3">
+
+						<!-- Price Breakdown -->
+						<div class="price-breakdown">
+							<div class="d-flex justify-content-between mb-2">
+								<span class="text-muted small" id="seat-label">Economy Seat (12A)</span>
+								<span class="fw-medium small" id="seat-price">$845.00</span>
+							</div>
+							<div class="d-flex justify-content-between mb-2" id="luggage-row">
+								<span class="text-muted small">Extra Luggage</span>
+								<span class="fw-medium small">$45.00</span>
+							</div>
+							<div class="d-flex justify-content-between mb-2" id="meal-row" style="display:none!important">
+								<span class="text-muted small">In-flight Meal</span>
+								<span class="fw-medium small">$35.00</span>
+							</div>
+							<div class="d-flex justify-content-between mb-2" id="boarding-row" style="display:none!important">
+								<span class="text-muted small">Priority Boarding</span>
+								<span class="fw-medium small">$25.00</span>
+							</div>
+							<div class="d-flex justify-content-between mb-2">
+								<span class="text-muted small">Taxes & Fees</span>
+								<span class="fw-medium small">$122.40</span>
+							</div>
+						</div>
+
+						<hr class="my-3">
+
+						<div class="d-flex justify-content-between align-items-center mb-4">
+							<span class="fw-bold fs-6">Total Cost</span>
+							<span class="total-price fw-bold fs-5" id="total-cost">$1,012.40</span>
+						</div>
+
+						<!-- Proceed Button -->
+						<button class="btn proceed-btn w-100 py-3 fw-bold" onclick="proceedToPayment()">
+							Proceed to Payment <i class="bi bi-arrow-right ms-1"></i>
+						</button>
+
+						<p class="text-muted text-center mt-3" style="font-size:11px;">By clicking, you agree to SkyBound's terms of service and refund policy.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+
+
+	
+	<!-- Payment Modal -->
+	<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content border-0 shadow-lg">
+				<div class="modal-header border-0 pb-0">
+					<h5 class="modal-title fw-bold">Complete Payment</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body px-4 pb-4">
+					<div class="payment-flight-badge d-flex align-items-center gap-2 mb-4 p-3 rounded">
+						<i class="bi bi-airplane text-primary"></i>
+						<span class="fw-bold text-primary small">FLIGHT SH422 &nbsp;·&nbsp; SFO → LHR</span>
+					</div>
+
+					<div class="mb-3">
+						<label class="form-label fw-semibold small">Card Number</label>
+						<input type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber" oninput="formatCard(this)">
+					</div>
+					<div class="row g-3 mb-3">
+						<div class="col-6">
+							<label class="form-label fw-semibold small">Expiry Date</label>
+							<input type="text" class="form-control" placeholder="MM / YY" maxlength="7" id="expiry" oninput="formatExpiry(this)">
+						</div>
+						<div class="col-6">
+							<label class="form-label fw-semibold small">CVV</label>
+							<input type="text" class="form-control" placeholder="•••" maxlength="3">
+						</div>
+					</div>
+					<div class="mb-4">
+						<label class="form-label fw-semibold small">Name on Card</label>
+						<input type="text" class="form-control" placeholder="John Doe" value="John Doe">
+					</div>
+
+					<div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded total-modal-box">
+						<span class="fw-bold">Total Amount</span>
+						<span class="fw-bold fs-5 text-primary" id="modal-total">$1,012.40</span>
+					</div>
+
+					<button class="btn proceed-btn w-100 py-3 fw-bold" onclick="confirmPayment()">
+						<i class="bi bi-lock-fill me-2"></i> Confirm & Pay
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Success Modal -->
+	<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-sm">
+			<div class="modal-content border-0 shadow-lg text-center p-4">
+				<div class="success-icon mb-3">
+					<i class="bi bi-check-circle-fill text-success" style="font-size:3rem;"></i>
+				</div>
+				<h5 class="fw-bold mb-2">Booking Confirmed!</h5>
+				<p class="text-muted small mb-3">Your flight SH422 from SFO to LHR has been successfully booked. A confirmation has been sent to your email.</p>
+				<div class="booking-ref-box p-2 rounded mb-4">
+					<div class="text-muted small">Booking Reference</div>
+					<div class="fw-bold text-primary">SB-2024-84221</div>
+				</div>
+				<button class="btn proceed-btn w-100 fw-bold" data-bs-dismiss="modal" onclick="window.location.href='./index.html'">Back to Home</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer class="py-5 mt-5">
+		<div class="container-xxl ">
+			<div class="row pb-5 footer-top">
+				<div class="col-lg-3 mb-4">
+					<div class="footer-logo">
+						<a href="javascript:;"><img src="./images/footer-logo.png" alt="Footer Logo" class="mb-3" /></a>
+						<p class="m-0">Redefining air travel through innovation, safety, and world-class hospitality. Join our journey across the skies.</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="d-flex justify-content-around flex-column flex-md-row">
+						<div class="footer-nav-left mb-4">
+							<h4 class="text-uppercase fw-bold fs-6">Company</h4>
+							<ul class="list-unstyled">
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">About Us</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Careers</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Newsroom</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Partners</a></li>
+							</ul>
+						</div>
+						<div class="footer-nav-right mb-4">
+							<h4 class="text-uppercase fw-bold fs-6">Support</h4>
+							<ul class="list-unstyled">
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Help Center</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Flight Status</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Refund Policy</a></li>
+								<li class="pt-2"><a href="javascript:;" class="text-decoration-none">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="newsletter">
+						<h4 class="text-uppercase fw-bold fs-6">Newsletter</h4>
+						<p class="m-0">Get exclusive deals and travel inspiration.</p>
+						<div class="d-flex mt-3">
+							<input type="email" class="form-control border-0 me-2" placeholder="Email" />
+							<button type="button" class="btn newsletter-btn">Join</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row footer-bottom">
+				<div class="pt-5 text-center">
+					<p class="m-0">&copy; 2024 SkyBound Airways. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Booking JS -->
+	<script src="./js/seatselection.js"></script>
+</body>
+</html>
