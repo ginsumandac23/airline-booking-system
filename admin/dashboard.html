@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Dashboard</title>
+
+	<!-- Google fonts for Poppins and Inter -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+	<!-- boootsrap css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+</head>
+<body>
+
+	<header class="container-fluid border-bottom">
+		<div class="container-xxl py-3">
+			<nav class="navbar navbar-expand-lg navbar-light">
+			   <a href="../index.html"><img src="../images/logo.png" alt="Logo" /></a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			      <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-4">
+			        <li class="nav-item">
+			          <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="flights.html">Flights</a>
+			        </li>
+			    	<li class="nav-item">
+			          <a class="nav-link" href="history.html">History</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="profile-settings.html">Settings</a>
+			        </li>
+			      </ul>
+			      <div class="d-flex gap-3">
+				      <form class="d-flex">
+				        <div class="search-wrapper">
+				          <input 
+				            class="form-control rounded-pill search-input" 
+				            type="search" 
+				            placeholder="Quick search..." 
+				            aria-label="Search"
+				          >
+				          <button type="submit" class="search-btn">
+				            <i class="bi bi-search"></i>
+				          </button>
+				        </div>
+				      </form>
+
+				      <div class="header-avatar">
+				      	<a href="profile-settings.html"><img src="../images/account-icon.png" alt="account icon" /></a>
+				      </div>
+			  	  </div>
+			    </div>
+			</nav>
+		</div>
+	</header>
+
+	<section class="container-fluid border-bottom">
+		<div class="container-xxl py-3">
+			<div class="row justify-content-between">
+
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<form class="d-flex">
+				        <div class="search-wrapper">
+				          <input 
+				            class="form-control py-2 rounded-pill search-flight search-input" 
+				            type="search" 
+				            placeholder="Search flights, metrics, or logs..." 
+				            aria-label="Flight Search"
+				          >
+				          <button type="submit" class="search-btn">
+				            <i class="bi bi-search"></i>
+				          </button>
+				        </div>
+			      	</form>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="d-flex justify-content-end gap-4">
+						<a href="javascript:;"><i class="bi bi-bell fs-4 text-dark"></i></a>
+						<a href="javascript:;"><i class="bi bi-question-circle fs-4 text-dark"></i></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<main class="container-fluid">
+		<div class="container-xxl py-5 dashboard-content">
+			<h1 class="pb-2">Dashboard <span class="d-block">Overview</span></h1>
+
+			<div class="d-flex justify-content-between flex-column flex-md-row">
+			<p class="fs-6">Real-time fleet performance and revenue analytics.</p>
+
+			<button class="btn rounded text-white new-flight-btn" data-bs-toggle="modal" data-bs-target="#addFlight">+ New Flight</button>
+			</div>
+
+
+			<section class="top-sec">
+				<div class="row justify-content-center gap-3 mt-4">
+					<div class="col-lg-4 col-md-6 col-sm-12 top-box m-0 p-3">
+						<h3 class="fs-6 pt-1 ps-2">Total Flights</h3>
+
+						<h5 class="fs-1 pt-1 ps-2 fw-bold text-black">1,284 <span class="fs-6 text-success">+12% <i class="bi bi-graph-up-arrow"></i></span></h5>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-12 top-box m-0 p-3">
+						<h3 class="fs-6 pt-1 ps-2">Active Today</h3>
+
+						<h5 class="fs-1 pt-1 ps-2 fw-bold text-black">42 <span class="fs-6 text-success">+5% <i class="bi bi-graph-up-arrow"></i></span></h5>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-12 top-box m-0 p-3">
+						<h3 class="fs-6 pt-1 ps-2">Avg. Avenue</h3>
+
+						<h5 class="fs-1 pt-1 ps-2 fw-bold text-black">$18,450 <span class="fs-6 text-danger">-2% <i class="bi bi-graph-down-arrow"></i></span></h5>
+					</div>
+
+				</div>
+			</section>
+
+
+			<section class="mid-sec mt-4">
+				<div class="row gap-3 flex-column flex-md-row">
+					<div class="col-lg-8 dashboard-chart border rounded-4 bg-white">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="chart-title p-3">
+								<h3 class="fs-5 text-black pt-3">Weekly Analytics</h3>
+								<p>Flight volume trend for the past 7 days</p>
+							</div>
+							<span class="p-1 px-2 text-black rounded-pill chart-week">This Week</span>
+						</div>
+
+						<div class="chart-area pb-5">
+							<canvas id="weeklyChart"></canvas>
+						</div>
+					</div>
+
+					<div class="col-lg-4 dashboard-helper-box">
+						
+						<section class="p-3 system-health border rounded-4 bg-white">
+							<h2 class="fs-6 pt-2 mb-4 text-uppercase text-black"><img src="../images/system-health-icon.png" alt="system health icon" class="pe-1" /> System Health</h2>
+
+							<div class="server-status border rounded-4 my-3 mb-4">
+								<div class="d-flex justify-content-between py-2 ps-3">
+									<h3 class="fs-6 m-0 p-0"><i class="bi bi-hdd-stack text-success fs-5"></i> Servers</h3>
+									<p class="fs-7 m-0 p-0 pe-2 text-uppercase fw-bold text-success">Online</p>
+								</div>
+							</div>
+
+							<div class="database-status border rounded-4 my-3">
+								<div class="d-flex justify-content-between py-2 ps-3">
+									<h3 class="fs-6 m-0 p-0"><i class="bi bi-database text-primary fs-5"></i> Database</h3>
+									<p class="fs-7 m-0 p-0 pe-2 text-uppercase fw-bold text-primary">Stable</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="p-3 active-sessions border rounded-4 bg-white mt-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<h2 class="fs-6 pt-2 m-0 text-uppercase text-black">Active Sessions</h2>
+								<span class="p-1 px-2 text-black rounded-pill active-count fw-bold">4 Active</span>
+							</div>
+
+
+							<div class="account-details-section">
+
+								<div class="account-details mt-4">
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex gap-3">
+											<div class="avatar-img">
+											<img src="../images/dummy-avatar.jpg" alt="dummy image" />
+											</div>
+
+											<div class="d-flex flex-column avatar-details">
+												<h5 class="m-0">Sarah Jenkins</h5>
+												<p class="m-0">London Office - <span>Now</span></p>
+											</div>
+										</div>
+
+										<span class="active-session-status"></span>
+									</div>
+								</div>
+
+
+								<div class="account-details mt-4">
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex gap-3">
+											<div class="avatar-img">
+											<img src="../images/dummy-avatar.jpg" alt="dummy image" />
+											</div>
+
+											<div class="d-flex flex-column avatar-details">
+												<h5 class="m-0">Marco Rossi</h5>
+												<p class="m-0">Rome Hub - <span>12m ago</span></p>
+											</div>
+										</div>
+
+										<span class="active-session-status"></span>
+									</div>
+								</div>
+
+
+								<div class="account-details mt-4">
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex gap-3">
+											<div class="avatar-img">
+											<img src="../images/dummy-avatar.jpg" alt="dummy image" />
+											</div>
+
+											<div class="d-flex flex-column avatar-details">
+												<h5 class="m-0">Lily Zhang</h5>
+												<p class="m-0">Shanghai - <span>24m ago</span></p>
+											</div>
+										</div>
+
+										<span class="not-active-session-status"></span>
+									</div>
+								</div>
+
+
+								<div class="account-details mt-4">
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex gap-3">
+											<div class="avatar-img">
+											<img src="../images/dummy-avatar.jpg" alt="dummy image" />
+											</div>
+
+											<div class="d-flex flex-column avatar-details">
+												<h5 class="m-0">Lily Zhang</h5>
+												<p class="m-0">Shanghai - <span>24m ago</span></p>
+											</div>
+										</div>
+
+										<span class="active-session-status"></span>
+									</div>
+								</div>
+
+							</div>
+
+
+							<a href="javascript:;" class="text-uppercase d-block text-center mt-4 mb-3 view-all-session">View All Sessions</a>
+
+						
+						</section>
+					</div>
+				</div>
+			</section>
+
+
+			<section class="bottom-sec mt-5">
+				<div class="reent-fligt-activities p-3 border rounded-4 bg-white">
+					<h2 class="text-black fs-5 pt-3">Recent Flight Activities</h2>
+
+					<div class="recent-flight-table p-3">
+						<div class="table-responsive">
+							<table class="table small">
+							  <thead>
+							    <tr>
+							      <th class="text-uppercase" scope="col">Flight ID</th>
+							      <th class="text-uppercase" scope="col">Origin / Destinationn</th>
+							      <th class="text-uppercase" scope="col">Status</th>
+							      <th class="text-uppercase" scope="col">Revenue</th>
+							      <th class="text-uppercase" scope="col">Action</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>#SK-2092</td>
+							      <td>LHR <i class="bi bi-arrow-right-short"></i> JFK</td>
+							      <td><span class="recent-flight-status in-flight">IN FLIGHT</span></td>
+							      <td>$4,280</td>
+							      <td>...</td>
+							    </tr>
+
+							    <tr>
+							      <td>#SK-1142</td>
+							      <td>DXB <i class="bi bi-arrow-right-short"></i> CDG</td>
+							      <td><span class="recent-flight-status boarding">BOARDING</span></td>
+							      <td>$3,150</td>
+							      <td>...</td>
+							    </tr>
+
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	
+
+	<footer class="py-2">
+		<div class="container-xxl ">
+			<div class="row footer-bottom">
+				<div class="py-2 text-center">
+					<p class="m-0">&copy; 2024 SkyBound Airways. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<button onclick="scrollToTop()" id="back-to-top-btn" title="Go to top" class="btn rounded-circle shadow">
+   		<i class="bi bi-arrow-up"></i>
+	</button>
+
+		
+
+		<!-- Add New FLight Modal -->
+		<div class="modal fade" id="addFlight" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered add-flight-modal">
+		    <div class="modal-content p-4">
+		      <div class="modal-header m-0 p-0 pb-3">
+		        <h5 class="modal-title" id="exampleModalLabel">Add Flight <span class="d-block">Configure flight parameters and scheduling</span></h5>
+		        
+
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body add-flight-dashboard-modal">
+
+		        <form class="add-flight-form-modal" action="./seatselection.html">
+		        	<div class="row g-3 mb-3">
+		        		<div class="col-md-6">
+			               <label class="form-label text-uppercase fw-bold">Price</label>
+			               <input type="number" class="form-control with-icon icon-5" placeholder="Price">
+			             </div>
+		        	</div>
+		           <div class="row g-3 mb-3">
+		             <!-- From -->
+		             <div class="col-md-6">
+		               <label class="form-label text-uppercase fw-bold">From</label>
+		               <input type="text" class="form-control with-icon icon-1" placeholder="Departure City">
+		             </div>
+
+		             <!-- To -->
+		             <div class="col-md-6">
+		               <label class="form-label text-uppercase fw-bold">To</label>
+		               <input type="text" class="form-control with-icon icon-2" placeholder="Enter destination">
+		             </div>
+
+		             <!-- Departure Date -->
+		             <div class="col-md-6">
+		               <label class="form-label text-uppercase fw-bold">Departure Date</label>
+		               <input type="date" class="form-control with-icon icon-3">
+		             </div>
+
+		             <!-- Cabin Class -->
+		             <div class="col-md-6">
+		               <label class="form-label text-uppercase fw-bold">Departure Time</label>
+		               <input type="time" class="form-control with-icon icon-4">
+		             </div>
+		           </div>
+
+		           <!-- <button type="submit" class="btn banner-search-btn w-100 mt-3 py-3 fs-5 fw-bold"><i class="bi bi-search"></i> Search Flights</button> -->
+		         </form>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Dismiss</button>
+		        <button type="submit" class="btn btn-primary add-flight-submit-btn py-2"><i class="bi bi-floppy"></i> Confirm Details</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<script>
+		const ctx = document.getElementById('weeklyChart');
+
+		new Chart(ctx, {
+		  type: 'line',
+		  data: {
+		    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+		    datasets: [{
+		      label: 'Weekly Bookings',
+		      data: [25, 40, 35, 50, 65, 80, 70],
+		      borderColor: '#0d6efd',
+		      backgroundColor: 'rgba(13, 110, 253, 0.2)',
+		      borderWidth: 3,
+		      tension: 0.4,
+		      fill: true,
+		      pointRadius: 4
+		    }]
+		  },
+		  options: {
+		    plugins: {
+		      legend: {
+		        display: false
+		      }
+		    },
+		    scales: {
+		      x: {
+		        grid: {
+		          display: false
+		        }
+		      },
+		      y: {
+		        grid: {
+		          display: false
+		        }
+		      }
+		    }
+		  }
+		});
+	</script>
+
+	<!-- bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- index js -->
+	<script src="../js/index.js"></script>
+</body>
+</html>

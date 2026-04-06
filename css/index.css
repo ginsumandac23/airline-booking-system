@@ -5,6 +5,10 @@
   --font-black: #475569;
 }
 
+.active {
+	color: var(--primary-color) !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Dashboard | History</title>
+
+	<!-- Google fonts for Poppins and Inter -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+	<!-- boootsrap css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+</head>
+<body>
+
+	<header class="container-fluid border-bottom">
+		<div class="container-xxl py-3">
+			<nav class="navbar navbar-expand-lg navbar-light">
+			   <a href="../index.html"><img src="../images/logo.png" alt="Logo" /></a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			      <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-4">
+			        <li class="nav-item">
+			          <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="flights.html">Flights</a>
+			        </li>
+			    	<li class="nav-item">
+			          <a class="nav-link active" href="history.html">History</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="profile-settings.html">Settings</a>
+			        </li>
+			      </ul>
+			      <div class="d-flex gap-3">
+				      <form class="d-flex">
+				        <div class="search-wrapper">
+				          <input 
+				            class="form-control rounded-pill search-input" 
+				            type="search" 
+				            placeholder="Quick search..." 
+				            aria-label="Search"
+				          >
+				          <button type="submit" class="search-btn">
+				            <i class="bi bi-search"></i>
+				          </button>
+				        </div>
+				      </form>
+
+				      <div class="header-avatar">
+				      	<a href="profile-settings.html"><img src="../images/account-icon.png" alt="account icon" /></a>
+				      </div>
+			  	  </div>
+			    </div>
+			</nav>
+		</div>
+	</header>
+
+
+	<main class="container-fluid">
+
+		<div class="container-xxl py-5 dashboard-content">
+
+			<h1 class="pb-2">Past Flight Logs</h1>
+
+			<div class="d-flex justify-content-between flex-column flex-md-row">
+			<p class="fs-6">Detailed archive of completed flight operations and revenue metrics for the current fiscal year.</p>
+
+			<button class="btn rounded text-white new-flight-btn"><i class="bi bi-funnel"></i> Filter</button>
+			</div>
+
+
+			<section class="flight-management-table mt-3 overflow-hidden border rounded-4">
+				<div class="table-responsive">
+					<table class="table small m-0">
+					  <thead>
+					    <tr>
+					      <th class="text-uppercase p-3">Flight #</th>
+					      <th class="text-uppercase p-3">Origin</th>
+					      <th class="text-uppercase p-3">Destination</th>
+					      <th class="text-uppercase p-3">Status</th>
+					      <th class="text-uppercase p-3">Total Revenue</th>
+					      <th class="text-uppercase p-3 text-center" colspan="2">Actions</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>SB-1024</td>
+					      <td>New York</td>
+					      <td>London</td>
+					      <td><span class="history-flight-status status-landed">Landed</span></td>
+					      <td>124500</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+					    <tr>
+					      <td>SB-0492</td>
+					      <td>Chicago</td>
+					      <td>Tokyo</td>
+					      <td><span class="history-flight-status status-archived">Archived</span></td>
+					      <td>98200</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-1024</td>
+					      <td>Paris</td>
+					      <td>Rome</td>
+					      <td><span class="history-flight-status status-landed">Landed</span></td>
+					      <td>156000</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-1556</td>
+					      <td>Dubai</td>
+					      <td>Sydney</td>
+					      <td><span class="history-flight-status status-landed">Landed</span></td>
+					      <td>112800</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-3301</td>
+					      <td>Singapore</td>
+					      <td>Hong Kong</td>
+					      <td><span class="history-flight-status status-archived">Archived</span></td>
+					      <td>109500</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-3301</td>
+					      <td>Singapore</td>
+					      <td>Hong Kong</td>
+					      <td><span class="history-flight-status status-landed">Landed</span></td>
+					      <td>56480</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-3301</td>
+					      <td>Singapore</td>
+					      <td>Hong Kong</td>
+					      <td><span class="history-flight-status status-archived">Archived</span></td>
+					      <td>86250</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					    <tr>
+					      <td>SB-3301</td>
+					      <td>Singapore</td>
+					      <td>Hong Kong</td>
+					      <td><span class="history-flight-status status-archived">Archived</span></td>
+					      <td>99454</td>
+					      <td><a href="javascript:;"><i class="bi bi-pencil float-end text-secondary"></i></a></td>
+					      <td><a href="javascript:;"><i class="bi bi-trash3 text-danger"></i></a></td>
+					    </tr>
+
+					  </tbody>
+					</table>
+				</div>
+
+				<div class="d-flex justify-content-between align-items-center p-3 flight-management-pagination">
+				  <!-- Left side -->
+				  <div id="tableInfo" class="text-muted small">
+				    Showing 0 of 0 flights
+				  </div>
+
+				  <!-- Right side -->
+				  <nav>
+				    <ul class="pagination mb-0">
+				      <li class="page-item">
+				        <button class="page-link text-black" id="prevBtn">Previous</button>
+				      </li>
+				      <li class="page-item">
+				        <button class="page-link text-black" id="nextBtn">Next</button>
+				      </li>
+				    </ul>
+				  </nav>
+				</div>
+			</section>
+
+
+			<section class="flight-history-bottom-area mt-5">
+			  <div class="row justify-content-center g-3">
+			    
+			    <div class="col-lg-4">
+			      <div class="flight-history-box border bg-white p-3 pt-4 rounded-3 h-100">
+			        <h3 class="text-uppercase fs-6 fw-bold mb-3"><img class="pe-2" src="../images/total-revenue-icon.png" alt="total revenue" /> Total Historic Revenue</h3>
+
+			        <p class="m-0 d-block fs-3 fw-bold text-black">$<span>4,821,300</span></p>
+			        <p class="history-percentage text-success fw-bold pt-2"><i class="bi bi-graph-up-arrow"></i> <span>+12% from last period</span></p>
+			      </div>
+			    </div>
+
+			    <div class="col-lg-4">
+			      <div class="flight-history-box border bg-white p-3 pt-4 rounded-3 h-100">
+			        <h3 class="text-uppercase fs-6 fw-bold mb-3"><img class="pe-2" src="../images/landed-flight-icon.png" alt="Landed Flight" /> Total Landed Flights</h3>
+
+			        <p class="m-0 d-block fs-3 fw-bold text-black"><span>1,248</span></p>
+			        <p class="history-percentage text-muted pt-2"> <span>Averaging 4.2 flights per day</span></p>
+			      </div>
+			    </div>
+
+			    <div class="col-lg-4">
+			      <div class="flight-history-box border bg-white p-3 pt-4 rounded-3 h-100">
+			        <h3 class="text-uppercase fs-6 fw-bold mb-3"><img class="pe-2" src="../images/archived-flight-icon.png" alt="Archived Flight" /> Total Archived Flights</h3>
+
+			        <p class="m-0 d-block fs-3 fw-bold text-black">$<span>826</span></p>
+			        <!-- <p class="history-percentage text-success fw-bold pt-2"><i class="bi bi-graph-up-arrow"></i> <span>+12% from last period</span></p> -->
+			      </div>
+			    </div>
+
+			  </div>
+			</section>
+
+			
+
+			
+		</div>
+	</main>
+	
+
+	<footer class="py-2">
+		<div class="container-xxl ">
+			<div class="row footer-bottom">
+				<div class="py-2 text-center">
+					<p class="m-0">&copy; 2024 SkyBound Airways. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<button onclick="scrollToTop()" id="back-to-top-btn" title="Go to top" class="btn rounded-circle shadow">
+   		<i class="bi bi-arrow-up"></i>
+	</button>
+
+		
+
+
+
+
+	<script>
+	  const rowsPerPage = 5;
+	  const rows = document.querySelectorAll("tbody tr");
+	  const totalRows = rows.length;
+
+	  const tableInfo = document.getElementById("tableInfo");
+	  const prevBtn = document.getElementById("prevBtn");
+	  const nextBtn = document.getElementById("nextBtn");
+
+	  let currentPage = 1;
+	  const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+	  function showPage(page) {
+	    currentPage = page;
+
+	    // hide all rows
+	    rows.forEach(row => row.style.display = "none");
+
+	    // show only current page rows
+	    const start = (page - 1) * rowsPerPage;
+	    const end = start + rowsPerPage;
+
+	    rows.forEach((row, index) => {
+	      if (index >= start && index < end) {
+	        row.style.display = "";
+	      }
+	    });
+
+	    // update text
+	    const showing = Math.min(end, totalRows);
+	    tableInfo.textContent = `Showing ${showing} of ${totalRows} flights`;
+
+	    // disable buttons
+	    prevBtn.disabled = page === 1;
+	    nextBtn.disabled = page === totalPages;
+	  }
+
+	  prevBtn.addEventListener("click", () => {
+	    if (currentPage > 1) showPage(currentPage - 1);
+	  });
+
+	  nextBtn.addEventListener("click", () => {
+	    if (currentPage < totalPages) showPage(currentPage + 1);
+	  });
+
+	  // init
+	  showPage(1);
+	</script>
+
+	<!-- bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- index js -->
+	<script src="../js/index.js"></script>
+</body>
+</html>

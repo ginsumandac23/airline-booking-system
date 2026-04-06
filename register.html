@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SkyBound | Register</title>
+
+	<!-- Google fonts for Poppins and Inter -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+	<!-- boootsrap css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="./css/auth.css">
+</head>
+<body>
+
+	<header class="container-fluid">
+		<div class="container-xxl py-2">
+			<nav class="navbar navbar-expand-lg navbar-light">
+			  <div class="container-fluid">
+			    <img src="./images/logo.png" alt="Logo" />
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			      <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarNav">
+			    	<div class="navbar-nav ms-auto grid-4">
+			    		<a class="nav-link" href="#">Help</a>
+			    		<a class="nav-link" href="#">Support</a>
+			    	</div>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+	</header>
+
+
+	<main class="container-fluid main-content">
+		
+		<section class="container-xxl py-5 my-5">
+			<div class="row">
+				<div class="col-lg-5 col-md-6 col-sm-12 mx-auto">
+					<div class="login-form-area bg-white rounded-3 border text-center">
+						<h1 class="fw-bold pt-4">Create Your Account</h1>
+						<p class="text-muted">Join SkyBound and start your next adventure.</p>
+
+						<form class="shadow-sm p-4" action="#" method="post" onsubmit="return goToLogin(event)">
+
+						   
+						    <div class="mb-3">
+						      <label for="firstName" class="form-label float-start">First Name</label>
+
+						      <input 
+						        type="text" 
+						        class="form-control rounded-3" 
+						        id="firstName" 
+						        name="firstName"
+						        placeholder="John"
+						        required>
+						    </div>
+
+						    <div class="mb-3">
+						      <label for="lastName" class="form-label float-start">Last Name</label>
+
+						      <input 
+						        type="text" 
+						        class="form-control rounded-3" 
+						        id="lastName" 
+						        name="lastName"
+						        placeholder="Doe"
+						        required>
+						    </div>
+
+						    <div class="mb-3">
+						      <label for="email" class="form-label float-start">Email</label>
+
+						      <input 
+						        type="email" 
+						        class="form-control rounded-3" 
+						        id="email" 
+						        name="email"
+						        placeholder="johndoe@mail.com"
+						        required>
+						    </div>
+
+						    <div class="mb-3">
+
+						      <label for="password" class="form-label float-start">Password</label>
+
+						      <input 
+						        type="password" 
+						        class="form-control rounded-3 login-password" 
+						        id="password" 
+						        name="password"
+						        placeholder="Enter password"
+						        required>
+
+						    </div>
+
+						    <div class="mb-3">
+
+						      <label for="confirmPassword" class="form-label float-start">Confirm Password</label>
+
+						      <input 
+						        type="password" 
+						        class="form-control rounded-3 login-password" 
+						        id="confirmPassword" 
+						        name="confirmPassword"
+						        placeholder="Enter password"
+						        required>
+
+						    </div>
+
+						    <!-- Sign in Button -->
+						    <button type="submit" class="btn btn-primary w-100 login-submit rounded-4">
+						      Sign In <i class="bi bi-arrow-right"></i>
+						    </button>
+
+
+						    <div class="d-flex align-items-center my-3 pt-2">
+							  <hr class="flex-grow-1">
+							  <span class="px-2 text-muted small fw-medium fs-6">Or continue with</span>
+							  <hr class="flex-grow-1">
+							</div>
+
+							<div class="row justify-content-center">
+								<div class="col-lg-12">
+									<button class="btn login-google-btn border rounded-3 px-5 py-2 fw-medium fs-6"><i class="bi bi-google pe-2"></i> Google</button>
+								</div>
+							</div>
+
+							<div class="pt-4 d-flex justify-content-center gap-2">
+								<p class="m-0 text-muted">Already have an account?</p>
+
+								<a class="text-decoration-none fw-medium" href="login.html">Login Here</a>
+							</div>
+
+						  </form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+
+
+	
+
+
+	<button onclick="scrollToTop()" id="back-to-top-btn" title="Go to top" class="btn rounded-circle shadow">
+   		<i class="bi bi-arrow-up"></i>
+	</button>
+
+
+	<!-- bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- index js -->
+	<script src="./js/index.js"></script>
+
+	<script>
+  function goToLogin(event) {
+    event.preventDefault(); // stop form from submitting
+
+    // redirect to your page
+    window.location.href = "login.html"; 
+    // change this to your target page
+  }
+</script>
+
+</body>
+</html>

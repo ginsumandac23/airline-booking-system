@@ -1,0 +1,82 @@
+:root {
+  --primary-color: #1E40AF; 
+  --secondary-color: #0F172A;
+  --btn-bg-color: #F59E0B;
+  --font-black: #475569;
+}
+
+body {
+  background: #1E40AF;
+}
+
+#back-to-top-btn {
+    background: var(--btn-bg-color);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+header {
+  background: #d2d9ef;
+}
+
+header .nav-link {
+  color: var(--font-black);
+  font-weight: 500;
+}
+
+.login-form-area h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+.login-form-area .form-label {
+  color: #334155;
+  font-weight: 500;
+}
+
+.login-form-area .form-control {
+  height: 50px;
+}
+
+.login-form-area .login-email {
+  padding-left: 40px; 
+  background-image: url("../images/login-email-icon.png");
+  background-repeat: no-repeat;
+  background-position: 12px 20px;
+}
+
+.login-form-area .login-password {
+  padding-left: 40px; 
+  background-image: url("../images/login-password-icon.png");
+  background-repeat: no-repeat;
+  background-position: 12px 15px;
+}
+
+.login-submit {
+  background: var(--btn-bg-color);
+  border: 0;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+}
